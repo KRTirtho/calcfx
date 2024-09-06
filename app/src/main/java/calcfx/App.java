@@ -20,6 +20,7 @@ public class App extends Application {
         stage.setTitle("Calculator");
         stage.setScene(scene);
 
+        stage.setResizable(false);
         stage.show();
     }
 }

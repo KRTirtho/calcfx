@@ -7,6 +7,8 @@ module calcfx {
     requires javafx.controls;
     requires javafx.fxml;
 
+    requires org.kordamp.ikonli.javafx;
+
     opens calcfx to javafx.fxml;
     opens calcfx.controllers to javafx.fxml;
 
