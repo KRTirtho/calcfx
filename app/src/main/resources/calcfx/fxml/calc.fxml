@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calcfx.controllers.CalculatorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="384.0" stylesheets="@../css/calc.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calcfx.controllers.CalculatorController">
   <children>
     <VBox layoutX="13.0" layoutY="13.0" prefHeight="403.0" prefWidth="357.0" spacing="20.0">
       <children>
@@ -52,7 +52,7 @@
             <Button mnemonicParsing="false" onAction="#onClickInputButton" prefHeight="85.0" prefWidth="85.0" text="00" GridPane.rowIndex="4" />
             <Button mnemonicParsing="false" onAction="#onClickInputButton" prefHeight="84.0" prefWidth="86.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button mnemonicParsing="false" onAction="#onClickPeriod" prefHeight="173.0" prefWidth="86.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#onClickEqual" prefHeight="84.0" prefWidth="86.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#onClickEqual" prefHeight="84.0" prefWidth="86.0" styleClass="equal" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
           </children>
         </GridPane>
       </children>

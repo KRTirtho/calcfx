@@ -1,0 +1,26 @@
+AnchorPane {
+  -fx-background-color: #fff;
+}
+
+Button {
+  -fx-border-width: 0;
+  -fx-background-color: #f4f4f4;
+  -fx-font-size: 1.5em;
+}
+
+Button:hover {
+  -fx-background-color: #e4e4e4;
+}
+
+Button:pressed {
+  -fx-background-color: #d5d4d4;
+}
+
+TextField {
+  -fx-font-size: 1.5em;
+  -fx-background-color: #f4f4f4;
+}
+
+.equal {
+  -fx-background-color: #ffb300;
+}
