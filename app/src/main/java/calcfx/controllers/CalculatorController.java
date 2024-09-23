@@ -59,16 +59,11 @@ public class CalculatorController {
         display.deleteText(text.length() - 1, text.length());
     }
 
-    // Must follow BODMAS/BIDMAS rule
-    // Implementing a two-pass algorithm to handle multiplication and division first
-    // and then addition and subtraction
     private String evaluate(String expression) {
-        // First pass: Handle multiplication and division
         List<String> tokens = new ArrayList<>();
         int i = 0;
         while (i < expression.length()) {
             StringBuilder sb = new StringBuilder();
-            // Collecting digits and '.' for numbers
             if (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.') {
                 while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
                     sb.append(expression.charAt(i));
@@ -76,48 +71,42 @@ public class CalculatorController {
                 }
                 tokens.add(sb.toString());
             } 
-            // Handle operators
             else {
                 char operator = expression.charAt(i);
                 if (operator == '*' || operator == '/') {
-                    double num1 = Double.parseDouble(tokens.remove(tokens.size() - 1)); // last number
-                    i++; // move past the operator
-                    sb.setLength(0); // reset StringBuilder
-                    // Collect next number
+                    double num1 = Double.parseDouble(tokens.remove(tokens.size() - 1));
+                    i++; 
+                    sb.setLength(0);
                     while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
                         sb.append(expression.charAt(i));
                         i++;
                     }
                     double num2 = Double.parseDouble(sb.toString());
                     
-                    // Perform multiplication or division
                     if (operator == '*') {
                         tokens.add(String.valueOf(num1 * num2));
                     } else {
                         tokens.add(String.valueOf(num1 / num2));
                     }
                 } else {
-                    // For addition and subtraction, just add them to the token list
                     tokens.add(String.valueOf(operator));
                     i++;
                 }
             }
         }
 
-        // Second pass: Handle addition and subtraction
         double result = Double.parseDouble(tokens.get(0));
         i = 1;
         while (i < tokens.size()) {
             String operator = tokens.get(i);
             double nextNum = Double.parseDouble(tokens.get(i + 1));
-
-            // Perform addition or subtraction
+            
             if (operator.equals("+")) {
                 result += nextNum;
             } else if (operator.equals("-")) {
                 result -= nextNum;
             }
-            i += 2; // Move to next operator and number
+            i += 2; 
         }
 
         return String.valueOf(result);
